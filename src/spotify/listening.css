@@ -1,0 +1,53 @@
+
+.avatar {
+    animation: rotate 10s infinite linear;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  body {
+    font-size: 300px;
+    letter-spacing: -11px;
+    font-weight: 600;
+    line-height: 250px !important; 
+  }
+
+  .song-title {
+    mix-blend-mode: overlay;
+    opacity: 0.6;
+  }
+  
+  .song-title.hovered {
+    animation: text-hover 0.3s ease-in-out;
+    mix-blend-mode: normal;
+    opacity: 1;
+  }
+
+  @keyframes text-hover {
+    from {
+      opacity: 0.6;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+.fade-in {
+  animation: fade-in 1s ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

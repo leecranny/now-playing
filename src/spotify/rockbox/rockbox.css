@@ -1,0 +1,15 @@
+/*
+ *	WebFont Package Licensed to Leah Cranston
+ */
+
+/* Rockbox Slant */
+@font-face {
+	font-family: Rockbox;
+	src:	url('./eot/Rockbox Slant.eot'); /* IE9 Compat Modes */
+	src:	url('./eot/Rockbox Slant.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+			url('./woff2/Rockbox Slant.woff2') format('woff2'), /* Super Modern Browsers */
+			url('./woff/Rockbox Slant.woff') format('woff'); /* Pretty Modern Browsers */
+	font-style: normal;
+	font-display: swap;
+}
+
