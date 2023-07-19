@@ -33,4 +33,13 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: us-east-1
         run: |
-          aws s3 sync ./build/ s3://s3-web-headwaves.dev.bitprism.co
+          aws s3 sync --acl public-read ./build/ s3://s3-web-headwaves.dev.bitprism.co
+
+      - name: CloudFront Invalidation
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: us-east-1
+        run: |
+          aws configure set preview.cloudfront true
+          aws cloudfront create-invalidation --distribution-id ELKSAG26S63OP --paths "/*"
