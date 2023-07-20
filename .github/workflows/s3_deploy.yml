@@ -21,15 +21,15 @@ jobs:
       - name: Install npm dependencies
         run: npm install
 
+      - name: Create .env file
+        run: |
+          echo "REACT_APP_API_ENDPOINT=https://api.headwaves.dev.bitprism.co/currentlyPlaying/" >> .env
+
       - name: Build
         run: npm run build
 
       - name: Install Dependencies
         run: npm i
-
-      - name: Create .env file
-        run: |
-          echo "REACT_APP_API_ENDPOINT=https://api.headwaves.dev.bitprism.co/currentlyPlaying/" >> .env
 
       - name: Deploy to S3
         env:
