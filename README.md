@@ -8,9 +8,11 @@ The project has two parts, an API component and a frontend.
 
 Create a `.env` file within `api/` with the following
 
-```SPOTIFY_CLIENT_ID={redacted}
+```
+SPOTIFY_CLIENT_ID={redacted}
 SPOTIFY_CLIENT_SECRET={redacted}
-SPOTIFY_REFRESH_TOKEN={redacted}```
+SPOTIFY_REFRESH_TOKEN={redacted}
+```
 
 then
 
