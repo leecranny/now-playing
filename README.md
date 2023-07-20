@@ -8,9 +8,9 @@ The project has two parts, an API component and a frontend.
 
 Create a `.env` file within `api/` with the following
 
-`SPOTIFY_CLIENT_ID={redacted}
+```SPOTIFY_CLIENT_ID={redacted}
 SPOTIFY_CLIENT_SECRET={redacted}
-SPOTIFY_REFRESH_TOKEN={redacted}`
+SPOTIFY_REFRESH_TOKEN={redacted}```
 
 then
 
@@ -45,4 +45,4 @@ The frontend can generate a static version using the following:
 npm run build
 ```
 
-The files are created in the `build/`directory.
+The files are created in the `build/` directory.
