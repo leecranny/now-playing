@@ -27,7 +27,7 @@ const NoiseBox = ({ currentImage, currentImageWidth, currentImageHeight, childre
   const shaders = Shaders.create({
     myShader: {
       frag: GLSL`
-        precision mediump float;
+        precision highp float;
         varying vec2 uv;
         uniform sampler2D iChannel0;
         uniform vec3 iChannel0Size;

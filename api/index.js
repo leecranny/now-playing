@@ -86,7 +86,7 @@ async function getNowPlayingItem(
 }
 
 const corsOptions = {
-    origin: ['http://localhost:3000', 'https://headwaves.dev.bitprism.co', 'https://headwav.es'],
+    origin: ['http://localhost:3000', 'http://localhost:3001', 'https://headwaves.dev.bitprism.co', 'https://headwav.es'],
 };
   
 app.use(cors(corsOptions));
