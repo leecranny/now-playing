@@ -24,11 +24,9 @@ const SpotifyNowPlaying = (props) => {
     const fetchData = () => {
       Promise.all([
         getNowPlayingItem(
-          props.client_id,
-          props.client_secret,
-          props.refresh_token
         ),
       ]).then((results) => {
+        console.log(results);
         setResult(results[0]);
         setLoading(false);
       });
