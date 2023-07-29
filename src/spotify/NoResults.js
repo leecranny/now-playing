@@ -20,12 +20,12 @@ const NoResults = () => {
       left="0"
       width="100%" 
       className="song-title"
+      style={{ pointerEvents: "none" }}
       >
         <Marquee className="fade-in">
           <Stack direction="row" spacing={1}>
               <Text
                 fontFamily="Rockbox"
-                style={{ pointerEvents: "none" }}
               >
                 Nothing is playing.
               </Text>
