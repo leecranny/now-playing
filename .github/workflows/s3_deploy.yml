@@ -3,7 +3,7 @@ name: Headwaves Deployment
 on:
   push:
     branches:
-      - feature/ci-cd-integration
+      - develop
 
 jobs:
   deploy:
