@@ -51,7 +51,7 @@ const SpotifyNowPlaying = (props) => {
 
   let currentImage = result.isPlaying
   ? result.albumImageUrl
-  : "https://freight.cargo.site/t/original/i/9813de878b99b6e38d77d3d8a012bb377d87cd6a05ef856aa65244c23f624a59/test-18.jpg";
+  : "https://freight.cargo.site/t/original/i/17a8cbdea196c816d7409a500ffcdb80fdf75c3551d3d4c9267e0121a03a693d/bkgrnd.jpg";
 
   return (
     <Box>
