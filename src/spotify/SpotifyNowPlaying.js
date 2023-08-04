@@ -88,7 +88,7 @@ const SpotifyNowPlaying = (props) => {
               >
                 <Stack
                   direction="row"
-                  spacing={4}
+                  spacing={6}
                   position="absolute"
                   bottom="0"
                   left="0"
@@ -96,7 +96,7 @@ const SpotifyNowPlaying = (props) => {
                   className="fade-in"
                 >
                   <Marquee className="marquee-text">
-                    <Stack direction="row" spacing='20px'>
+                    <Stack direction="row" spacing='0.25em'>
                       <Text color="white" fontFamily="Rockbox">
                         {result.title}
                       </Text>
