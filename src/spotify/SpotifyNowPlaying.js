@@ -11,6 +11,7 @@ const SpotifyNowPlaying = (props) => {
   const [loading, setLoading] = useState(true);
   const [result, setResult] = useState({});
   const [isLinkHovered, setIsLinkHovered] = useState(false);
+  const [initialLoad, setInitialLoad] = useState(false);
 
   const handleLinkHover = () => {
     setIsLinkHovered(true);
@@ -29,6 +30,9 @@ const SpotifyNowPlaying = (props) => {
         console.log(results);
         setResult(results[0]);
         setLoading(false);
+        if (!initialLoad && results[0].isPlaying) {
+          setInitialLoad(true);
+        }
       });
     };
 
@@ -38,9 +42,9 @@ const SpotifyNowPlaying = (props) => {
     return () => {
       clearInterval(interval);
     };
-  }, [props.client_id, props.client_secret, props.refresh_token]);
+  }, [props.client_id, props.client_secret, props.refresh_token, initialLoad]);
 
-  // Changing the page title
+  
   useEffect(() => {
     document.title = "Lee is listening..."; // Title when the component mounts
 
