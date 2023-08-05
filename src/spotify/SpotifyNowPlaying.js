@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Stack, Text, Link, Spinner, Image } from "@chakra-ui/react";
+import { Box, Stack, Text, Link, Spinner, Image, Flex } from "@chakra-ui/react";
 import getNowPlayingItem from "./SpotifyAPI";
 import NoResults from "./NoResults";
 import Marquee from "react-fast-marquee";
@@ -59,13 +59,19 @@ const SpotifyNowPlaying = (props) => {
 
   return (
     <Box>
-      <NoiseBox currentImage={currentImage} currentImageWidth={result.isPlaying ? result.albumImageWidth : 1943} currentImageHeight={result.isPlaying ? result.albumImageHeight : 1457} />
       {loading ? (
-        <Stack align="center" mb={8}>
-          <Spinner size="md" speed="0.6s" thickness={3} color="gray.500" />
-        </Stack>
+        <>
+        <Flex
+          align="center"
+          justify="center"
+          height="100vh" 
+        >
+          <Spinner size="xl" speed="0.6s" thickness={3} color="gray.200" />
+        </Flex>
+        </>
       ) : (
         <>
+        <NoiseBox currentImage={currentImage} currentImageWidth={result.isPlaying ? result.albumImageWidth : 1943} currentImageHeight={result.isPlaying ? result.albumImageHeight : 1457} />
           {result.isPlaying ? (
             <Stack
               width="full"
