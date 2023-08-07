@@ -1,44 +1,56 @@
+/* listening.css */
 
+/* Rotate avatar animation */
 .avatar {
-    animation: rotate 10s infinite linear;
-  }
-  
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+  animation: rotate 10s infinite linear;
+  border-radius: 100%;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.33);
+}
 
-  body {
-    font-size: 300px;
-    letter-spacing: -11px;
-    font-weight: 600;
-    line-height: 250px !important; 
-  }
 
-  .song-title {
-    mix-blend-mode: overlay;
-    opacity: 0.6;
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .song-title.hovered {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Base font size for the text */
+body {
+  font-size: 19em;
+  letter-spacing: -.05em ;
+  font-weight: 500;
+  line-height: 250px !important; 
+}
+
+/* Song title styles */
+.song-title {
+  mix-blend-mode: overlay;
+  opacity: 0.6;
+}
+
+
+/* Song title hover animation on non-mobile (larger screens) */
+@media (min-width: 769px) {
+  .song-title:hover {
     animation: text-hover 0.3s ease-in-out;
     mix-blend-mode: normal;
     opacity: 1;
   }
+}
 
-  @keyframes text-hover {
-    from {
-      opacity: 0.6;
-    }
-    to {
-      opacity: 1;
-    }
+@keyframes text-hover {
+  from {
+    opacity: 0.6;
   }
+  to {
+    opacity: 1;
+  }
+}
 
+/* Fade-in animation */
 .fade-in {
   animation: fade-in 1s ease-in-out;
 }
@@ -49,5 +61,35 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  /* Hide overflow on small screens */
+  html, body {
+    overflow: hidden;
+    height: 100%;
+  }
+  
+  /* Prevent scrolling on small screens */
+  .marquee-text {
+    overflow: hidden;
+  }
+
+  /* Adjust song title styles on small screens */
+  .song-title {
+    mix-blend-mode: overlay;
+    opacity: 0.9;
+  }
+}
+
+
+@media (max-width: 768px) {
+  /* Further adjust font size and letter spacing on smaller screens */
+  body {
+    font-size: 200px;
+    letter-spacing: -6px;
+    line-height: 170px !important;
   }
 }

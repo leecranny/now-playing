@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Stack, Text, Link, Spinner, Image } from "@chakra-ui/react";
+import { Box, Stack, Text, Link, Spinner, Image, Flex } from "@chakra-ui/react";
 import getNowPlayingItem from "./SpotifyAPI";
 import NoResults from "./NoResults";
 import Marquee from "react-fast-marquee";
@@ -11,6 +11,7 @@ const SpotifyNowPlaying = (props) => {
   const [loading, setLoading] = useState(true);
   const [result, setResult] = useState({});
   const [isLinkHovered, setIsLinkHovered] = useState(false);
+  const [initialLoad, setInitialLoad] = useState(false);
 
   const handleLinkHover = () => {
     setIsLinkHovered(true);
@@ -29,6 +30,9 @@ const SpotifyNowPlaying = (props) => {
         console.log(results);
         setResult(results[0]);
         setLoading(false);
+        if (!initialLoad && results[0].isPlaying) {
+          setInitialLoad(true);
+        }
       });
     };
 
@@ -38,9 +42,9 @@ const SpotifyNowPlaying = (props) => {
     return () => {
       clearInterval(interval);
     };
-  }, [props.client_id, props.client_secret, props.refresh_token]);
+  }, [props.client_id, props.client_secret, props.refresh_token, initialLoad]);
 
-  // Changing the page title
+  
   useEffect(() => {
     document.title = "Lee is listening..."; // Title when the component mounts
 
@@ -51,17 +55,23 @@ const SpotifyNowPlaying = (props) => {
 
   let currentImage = result.isPlaying
   ? result.albumImageUrl
-  : "https://freight.cargo.site/t/original/i/93b00bb1be42a41c3a24cf456e31f7d8ae0b6d4f1ac1249f4c6b7aa930abe6e7/spotify-1.jpg";
+  : "https://freight.cargo.site/t/original/i/17a8cbdea196c816d7409a500ffcdb80fdf75c3551d3d4c9267e0121a03a693d/bkgrnd.jpg";
 
   return (
     <Box>
-      <NoiseBox currentImage={currentImage} currentImageWidth={result.isPlaying ? result.albumImageWidth : 1943} currentImageHeight={result.isPlaying ? result.albumImageHeight : 1457} />
       {loading ? (
-        <Stack align="center" mb={8}>
-          <Spinner size="md" speed="0.6s" thickness={3} color="gray.500" />
-        </Stack>
+        <>
+        <Flex
+          align="center"
+          justify="center"
+          height="100vh" 
+        >
+          <Spinner size="xl" speed="0.6s" thickness={3} color="gray.200" />
+        </Flex>
+        </>
       ) : (
         <>
+        <NoiseBox currentImage={currentImage} currentImageWidth={result.isPlaying ? result.albumImageWidth : 1943} currentImageHeight={result.isPlaying ? result.albumImageHeight : 1457} />
           {result.isPlaying ? (
             <Stack
               width="full"
@@ -74,8 +84,8 @@ const SpotifyNowPlaying = (props) => {
                   target="_blank"
                 >
                   <Image
-                    src="https://freight.cargo.site/t/original/i/939871efec367d65427d7b116df305374b8a6444c783f47aae464b14684ee850/working.png"
-                    boxSize="75px"
+                    src="https://freight.cargo.site/t/original/i/9917d07595759ce1c32038db6ef698b7c4150b1d7c9bafe208de9988505d5de7/for-spinner.jpg"
+                    boxSize="72px"
                     className="avatar"
                   />
                 </Link>
@@ -88,15 +98,15 @@ const SpotifyNowPlaying = (props) => {
               >
                 <Stack
                   direction="row"
-                  spacing={4}
+                  spacing={6}
                   position="absolute"
                   bottom="0"
                   left="0"
                   width="100%"
                   className="fade-in"
                 >
-                  <Marquee>
-                    <Stack direction="row" spacing={1}>
+                  <Marquee className="marquee-text">
+                    <Stack direction="row" spacing='0.25em'>
                       <Text color="white" fontFamily="Rockbox">
                         {result.title}
                       </Text>

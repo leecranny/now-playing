@@ -3,7 +3,7 @@ name: Headwaves Deployment
 on:
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   deploy:
@@ -37,7 +37,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: us-east-1
         run: |
-          aws s3 sync --acl public-read ./build/ s3://s3-web-headwaves.dev.bitprism.co
+          aws s3 sync --acl public-read ./build/ s3://s3-web-headwav.es
 
       - name: CloudFront Invalidation
         env:
@@ -46,4 +46,4 @@ jobs:
           AWS_DEFAULT_REGION: us-east-1
         run: |
           aws configure set preview.cloudfront true
-          aws cloudfront create-invalidation --distribution-id ELKSAG26S63OP --paths "/*"
+          aws cloudfront create-invalidation --distribution-id E3NI0A7WCO0LQT --paths "/*"
