@@ -85,7 +85,7 @@ const SpotifyNowPlaying = (props) => {
                 >
                   <Image
                     src="https://freight.cargo.site/t/original/i/9917d07595759ce1c32038db6ef698b7c4150b1d7c9bafe208de9988505d5de7/for-spinner.jpg"
-                    boxSize="72px"
+                    boxSize="0.3em"
                     className="avatar"
                   />
                 </Link>
