@@ -23,6 +23,7 @@ body {
   letter-spacing: -.05em ;
   font-weight: 500;
   line-height: 250px !important; 
+  overflow: hidden;
 }
 
 /* Song title styles */
@@ -48,6 +49,10 @@ body {
   to {
     opacity: 1;
   }
+}
+
+.marquee-text {
+  overflow: hidden;
 }
 
 /* Fade-in animation */
