@@ -4,7 +4,7 @@
 .avatar {
   animation: rotate 10s infinite linear;
   border-radius: 100%;
-  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.33);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -88,8 +88,8 @@ body {
 @media (max-width: 768px) {
   /* Further adjust font size and letter spacing on smaller screens */
   body {
-    font-size: 200px;
+    font-size: 230px;
     letter-spacing: -6px;
-    line-height: 170px !important;
+    line-height: 190px !important;
   }
 }
